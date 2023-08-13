@@ -1,0 +1,95 @@
+﻿@model UserViewModel
+
+ <tr>
+                                    <td>@Model.FullName</td>
+                                    <td>@Model.Username</td>
+                                    <td>@Model.Email</td>
+                                    <td>
+                                       
+                                        <span class="badge badge-light-@(Model.IsDeleted? "danger":"success") js-status"> 
+                                            @(Model.IsDeleted?"Deleted":"Available") 
+
+                                        </span>
+
+
+                                    </td>
+
+                                    <td>
+                                       
+                                        <span class="badge badge-light-@( Model.LockoutEnd is null ? "success" : "danger") js-status2"> 
+                                            @(Model.LockoutEnd is null ? "Opend" : "Locked") 
+
+                                        </span>
+
+
+                                    </td>
+
+                                    <td>@Model.CreatedOn</td>
+                                    <td class="js-updated">@Model.LastUpdated</td>
+                                    <td>
+                                        <div class="card-toolbar">   
+                                                    <button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true">                
+                                                        <!--begin::Svg Icon | path: /var/www/preview.keenthemes.com/kt-products/docs/metronic/html/releases/2023-03-24-172858/core/html/src/media/icons/duotune/abstract/abs029.svg-->
+                                                            <span class="svg-icon svg-icon-muted svg-icon-2hx">
+                                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M6.5 11C8.98528 11 11 8.98528 11 6.5C11 4.01472 8.98528 2 6.5 2C4.01472 2 2 4.01472 2 6.5C2 8.98528 4.01472 11 6.5 11Z" fill="currentColor"/>
+                                                                    <path opacity="0.3" d="M13 6.5C13 4 15 2 17.5 2C20 2 22 4 22 6.5C22 9 20 11 17.5 11C15 11 13 9 13 6.5ZM6.5 22C9 22 11 20 11 17.5C11 15 9 13 6.5 13C4 13 2 15 2 17.5C2 20 4 22 6.5 22ZM17.5 22C20 22 22 20 22 17.5C22 15 20 13 17.5 13C15 13 13 15 13 17.5C13 20 15 22 17.5 22Z" fill="currentColor"/>
+                                                                </svg>
+                                                            </span>
+                                                        <!--end::Svg Icon--> 
+                                                    </button>
+                                                <!--begin::Menu-->
+                                                    <button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true">                
+                                                        <i class="ki-duotone ki-dots-square fs-1 text-gray-300 me-n1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>                             
+                                                    </button>
+                                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px" data-kt-menu="true" style="">
+                                                            <!--begin::Menu item-->
+                                                                            <div class="menu-item px-3">
+                                                                                <a href="javascript:;" style="font-size: 15px;"
+                                                                                 class="menu-link m-3 px-3  js-rander-model" 
+                                                                                 data-url="/User/Edit/@Model.Id" data-title="Edit User"   data-update="true">
+                                                                                    Edit
+                                                                                </a>
+                                                                            </div>
+                                                            <!--end::Menu item-->
+                                                            <!--begin::Menu separator-->
+                                                                <div class="separator m-3 opacity-75"></div>
+                                                            <!--end::Menu separator-->
+
+                                                                <!--begin::Menu item-->
+                                                                    <div class="menu-item px-3 ">
+                                                                        @* JAVASCRIPT:; TO PREVANT CHANGING DIRECTORY AFTER PRESSING  *@              @* (data-id)=>ATTACH ADDITIONAL DATA FOR ELEMENT THAT CAN BE ACCESSD USING JS*@
+                                                                        <a href="javascript:;" class="menu-link m-3 px-3 js-toggle-status"
+                                                                         style="font-size: 15px;" 
+                                                                         data-url="/User/ToggleStatus/@Model.Id" >
+                                                                            Toggel status
+                                                                        </a>
+                                                                    </div>
+                                                                <!--end::Menu item-->
+                                                                 <!--begin::Menu separator-->
+                                                                <div class="separator m-3 opacity-75"></div>
+                                                                 <!--end::Menu separator-->
+
+                                                                 <!--begin::Menu item-->
+                                                                            <div class="menu-item px-3">
+                                                                                <a href="javascript:;" style="font-size: 15px;"
+                                                                                 class="menu-link m-3 px-3  js-rander-model" 
+                                                                                 data-url="/User/ChangePassword/@Model.Id"  data-title="Change Password"   data-update="true">
+                                                                                    ChangePassword
+                                                                                </a>
+                                                                            </div>
+                                                            <!--end::Menu item-->
+                                                            <!--begin::Menu item-->
+                                                                       <div class="menu-item px-3 ">
+                                                                            <a href="javascript:;" class="menu-link m-3 px-3 js-confirm" data-message="are you sure you want to unlock this account ?"
+                                                                                 style="font-size: 15px;" 
+                                                                                 data-url="/User/Unlock/@Model.Id" >
+                                                                                    locking Status
+                                                                            </a>
+                                                                       </div>
+                                                            <!--end::Menu item-->
+                                                        </div>
+                                                <!--end::Menu-->             
+                                        </div>
+                                    </td>
+                                </tr>

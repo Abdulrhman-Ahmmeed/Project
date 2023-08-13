@@ -1,0 +1,33 @@
+﻿    @model CopiesFormViewModel
+
+        <form  asp-action="Create"
+           data-ajax-method="post"
+           data-ajax="true"
+           data-ajax-begin="onModalBegin"
+           data-ajax-success="onAddCopyModalSuccess"
+           data-ajax-failure="showAlertMessage"
+           data-ajax-complete="onModalComplete">
+
+           <input  type="hidden" asp-for="BookId"/>
+                <div class="mb-5">   
+                    <div class="form-floating mb-2">
+                            <input type="text" class="form-control"  placeholder="Edition" asp-for="EditionNumber"/>
+                            <label asp-for="EditionNumber"></label>
+                    </div>
+                        <span asp-validation-for="EditionNumber" class="text-danger d-block"></span>
+
+                @if(Model!.IsAvailableForRental)
+                    {
+                      
+                        <div class="form-check form-check-solid form-check-custom form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" asp-for="IsAvailableForRental" data-val="false">
+                            <label class="form-check-label" asp-for="IsAvailableForRental"></label>
+                        </div>
+                            
+                    }
+
+                   
+                </div> 
+                <partial name="_modalfooter"/>
+        </form>
+           

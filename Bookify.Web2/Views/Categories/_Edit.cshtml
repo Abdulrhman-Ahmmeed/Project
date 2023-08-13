@@ -1,0 +1,26 @@
+﻿@model EditViewModelCategory
+
+
+
+   <form  asp-action="Edit"
+        data-ajax-method="post"
+       data-ajax="true"
+       data-ajax-begin="onModalBegin"
+       data-ajax-success="onModalSuccess"
+       data-ajax-failure="showAlertMessage"
+       data-ajax-complete="onModalComplete">
+                <div class="mb-5">   
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control"  placeholder="Name Of Catigory"  asp-for="Id" disabled/>
+                        <label asp-for="Id"></label>
+                     </div>
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control"  placeholder="Name Of Catigory" asp-for="Name"/>
+                        <label asp-for="Name"></label>
+                     </div>
+                    <span asp-validation-for="Name" class="text-danger d-block"></span>
+
+                </div> 
+                         <partial name="_modalfooter"/>
+
+                </form>

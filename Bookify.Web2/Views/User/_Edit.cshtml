@@ -1,0 +1,54 @@
+﻿@model UserEditViewModel
+
+
+
+   <form  asp-action="Edit"
+        data-ajax-method="post"
+       data-ajax="true"
+       data-ajax-begin="onModalBegin"
+       data-ajax-success="onModalSuccess"
+       data-ajax-failure="showAlertMessage"
+       data-ajax-complete="onModalComplete">
+
+                <div class="mb-5">  
+                  <input type="hidden" asp-for="Id" />
+
+
+                <div class="mb-5">   
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control"  placeholder="FullName"  asp-for="FullName" autocomplete="off"/>
+                        <label asp-for="FullName"></label>
+                     </div>
+                    <span asp-validation-for="FullName" class="text-danger d-block"></span>
+                </div> 
+
+                <div class="mb-5">   
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control"  placeholder="UserName"  asp-for="UserName" autocomplete="off"/>
+                        <label asp-for="UserName"></label>
+                     </div>
+                    <span asp-validation-for="UserName" class="text-danger d-block"></span>
+
+                </div> 
+
+                <div class="mb-5">   
+                    <div class="form-floating mb-2">
+                        <input type="email" class="form-control"  placeholder="Email"  asp-for="Email" autocomplete="off"/>
+                        <label asp-for="Email"></label>
+                     </div>
+                   
+                    <span asp-validation-for="Email" class="text-danger d-block"></span>
+
+                </div>   
+                
+                    <div class="mb-5">   
+                        <div class="form-floating mb-2">
+                            <select class="form-select form-select  js-select2" data-placeholder="select Roles" asp-for="SelectedRoles" asp-items="@Model.Roles" autocomplete="off">
+                                <option>Select Roles</option>
+                            </select>                                 
+                            </div>
+                        <span asp-validation-for="SelectedRoles" class="text-danger d-block"></span>
+                    </div>
+                         <partial name="_modalfooter"/>
+
+   </form>
